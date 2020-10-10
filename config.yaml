@@ -1,0 +1,12 @@
+baseURL: 'http://theredone.io/'
+languageCode: en-us
+title: TheRedOne
+theme:
+    - casper3
+mainSections:
+    - posts
+
+enableRobotsTXT: true
+
+# dateFormat:
+#     - January 2, 2006
