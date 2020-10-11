@@ -17,7 +17,7 @@ feature_image: /posts/2020/10/daniel-jerez-CD4WHrWio6Q-unsplash.jpg
 
 After struggling, reading, researching, and testing we finally have a full site-to-site OpenVPN tunnel from home to the Proxmox cluster I maintain at a local colocation facility (see infrastructure post - not written yet). There are a lot of posts that are either incomplete, not secure enough for my liking, or are very outdated. I hope this post serves as a good starting point that is consistently updated.
 
-Requirements
+## Requirements
 
 :o: OpenVPN tunnel should always be online even if my home IP changes
 
