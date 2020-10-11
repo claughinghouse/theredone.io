@@ -1,7 +1,7 @@
 ---
 title: "pfSense and USG Site to Site OpenVPN"
 date: '2020-10-10'
-draft: true
+draft: false
 description: >-
   A guide to establishing a site to Site-to-Site VPN Tunnel between pfSense and Unifi USG
 tags:
