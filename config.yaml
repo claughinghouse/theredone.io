@@ -1,12 +1,27 @@
 baseURL: 'http://theredone.io/'
 languageCode: en-us
-title: TheRedOne
+author: TheRedOne
+title: ThereDone
 theme:
-    - casper3
+  - casper3
 mainSections:
-    - posts
+  - posts
 
 enableRobotsTXT: true
 
-# dateFormat:
-#     - January 2, 2006
+enableInlineShortcodes: true
+
+enableEmoji: true
+
+params:
+  description: Building the homelab and other interesting things.
+  mainSections:
+    - post
+
+copyright: >-
+  Copyright © 2020
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
