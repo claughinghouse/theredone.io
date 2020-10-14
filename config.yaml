@@ -1,27 +1,61 @@
+# baseURL: 'http://theredone.io/'
+# languageCode: en-us
+# author: TheRedOne
+# title: ThereDone
+# theme:
+#   - casper3
+# mainSections:
+#   - posts
+
+# enableRobotsTXT: true
+
+# enableInlineShortcodes: true
+
+# enableEmoji: true
+
+# params:
+#   description: Building the homelab and other interesting things.
+#   mainSections:
+#     - post
+
+# copyright: >-
+#   Copyright © 2020
+
+# taxonomies:
+#   category: categories
+#   tag: tags
+#   series: series
+
 baseURL: 'http://theredone.io/'
-languageCode: en-us
-author: TheRedOne
+defaultContentLanguage: en
+languageCode: en
 title: ThereDone
-theme:
-  - casper3
-mainSections:
-  - posts
-
-enableRobotsTXT: true
-
-enableInlineShortcodes: true
-
-enableEmoji: true
-
+theme: LoveIt
 params:
-  description: Building the homelab and other interesting things.
-  mainSections:
-    - post
-
-copyright: >-
-  Copyright © 2020
-
-taxonomies:
-  category: categories
-  tag: tags
-  series: series
+  version: 0.2.X
+menu:
+  main:
+    - identifier: posts
+      pre: ''
+      post: ''
+      name: Posts
+      url: /posts/
+      title: ''
+      weight: 1
+    - identifier: tags
+      pre: ''
+      post: ''
+      name: Tags
+      url: /tags/
+      title: ''
+      weight: 2
+    - identifier: categories
+      pre: ''
+      post: ''
+      name: Categories
+      url: /categories/
+      title: ''
+      weight: 3
+markup:
+  highlight:
+    noClasses: false
