@@ -1,31 +1,4 @@
-# baseURL: 'http://theredone.io/'
-# languageCode: en-us
-# author: TheRedOne
-# title: ThereDone
-# theme:
-#   - casper3
-# mainSections:
-#   - posts
-
-# enableRobotsTXT: true
-
-# enableInlineShortcodes: true
-
-# enableEmoji: true
-
-# params:
-#   description: Building the homelab and other interesting things.
-#   mainSections:
-#     - post
-
-# copyright: >-
-#   Copyright © 2020
-
-# taxonomies:
-#   category: categories
-#   tag: tags
-#   series: series
-
+---
 baseURL: 'http://theredone.io/'
 defaultContentLanguage: en
 languageCode: en
@@ -59,3 +32,4 @@ menu:
 markup:
   highlight:
     noClasses: false
+enableEmoji: true
