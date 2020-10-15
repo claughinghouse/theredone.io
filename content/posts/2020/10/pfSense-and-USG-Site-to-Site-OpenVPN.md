@@ -1,23 +1,22 @@
 ---
-title: "pfSense and USG Site to Site OpenVPN"
-date: '2020-10-10'
-draft: true
-description: >-
-  A guide to establishing a site to Site-to-Site VPN Tunnel between pfSense and Unifi USG
-tags:
-  - OpenVPN
-  - Unifi
-  - USG
-  - pfSense
-  - Site-to-Site
-categories:
-  - guide
-feature_image: /posts/2020/10/daniel-jerez-CD4WHrWio6Q-unsplash.jpg
+weight: 1
+title: "Theme Documentation - Basics"
+date: 2020-03-06T21:29:01+08:00
+lastmod: 2020-03-06T21:29:01+08:00
+draft: false
+author: "Cody"
+authorLink: "https://theredone.io"
+description: "OpenVPN Site-to-Site Tunnel between pfSense and USG"
+tags: ["installation", "configuration", "openvpn", "pfsense", "usg", "unifi"]
+categories: ["how to"]
+lightgallery: true
+toc:
+  auto: false
 ---
 
 After struggling, reading, researching, and testing we finally have a full site-to-site OpenVPN tunnel from home to the Proxmox cluster I maintain at a local colocation facility (see infrastructure post - not written yet). There are a lot of posts that are either incomplete, not secure enough for my liking, or are very outdated. I hope this post serves as a good starting point that is consistently updated.
 
-## Requirements
+## 1 Requirements
 
 :o: OpenVPN tunnel should always be online even if my home IP changes
 
@@ -27,9 +26,9 @@ After struggling, reading, researching, and testing we finally have a full site-
 
 :o: No additional hardware, only existing Unifi USG at home and the pfSense SG-2440 at the colocation facility
 
-## The Setup
+## 2 The Setup
 
-### pfSense
+### 2.1 pfSense
 
 We're going to use the GUI for setup
 
@@ -115,7 +114,7 @@ Verbosity level: 3 - Set this higher if you need to troubleshoot and change back
 
 Click Save
 
-### Unifi USG
+### 2.2 Unifi USG
 
 The following steps assume that you are comfortable with the command line, have an Unifi Controller (or cloud key) setup, and know where to place the file. More information on Ubiquiti's website.
 
@@ -127,7 +126,7 @@ Once you are logged into the USG via SSH elevate yourself to root
 
 Now we need to copy the key out and remove the line breaks. The text between `BEGIN OpenVPN Static key V1` and `END` all needs to be formatted into one line. Use your favorite plaintext editor such as VSCode or Notepad++. Don't worry about the file being persistent across upgrades. We are not leaving it on the filesystem in the /tmp directory. Keep a copy of the key with line breaks for later.
 
-### Unifi Controller
+### 2.3 Unifi Controller
 
 From the main page, navigate to the Settings page by clicking the gear icon. Then to `Settings > VPN > VPN Connections > UniFi to UniFi VPN`. Yes I know we are not connecting an Unifi to Unifi device however this is how it is laid out in the controller. Don't shoot the messenger on this one.
 
@@ -157,7 +156,7 @@ Shared Secret Key: This is the key generated from the command line. Just paste i
 
 Click Done.
 
-### Back to pfSense
+### 2.4 Back to pfSense
 
 Now time to add the firewall rule and shared key for the OpenVPN tunnel.
 
@@ -223,7 +222,7 @@ Description: A friendly name for the rule
 
 Save and apply the rule.
 
-### Back to the Unifi Controller
+### 2.5 Back to the Unifi Controller
 
 > I promise we're almost done.
 
@@ -235,7 +234,7 @@ In this folder open your favorite command line text editor and edit the file `co
 
 Within the file, add the below contents and save.
 
-```console
+```shell
 {
 	"interfaces": {
 		"openvpn": {
@@ -253,7 +252,7 @@ Now, from the Unifi Controller select the USG and force provision it and wait.
 
 While it is provisioning you can check the status of the OpenVPN tunnel from the pfSense GUI. To view it navigate to `Status > OpenVPN`. If there are issues, take a look at the logs for the OpenVPN. If needed you can also SSH into the USG and take a look at `/var/log/messages` and wait for the tunnel status to be logged as successful.
 
-## The Result
+### 2.6 The Result
 
 Once the tunnel is up we are able to access all resources at the colocation across the VPN without having to establish a connection each time. This tunnel is also bi-directional and allows for servers on the pfSense side to access resources on the USG side.
 
@@ -267,12 +266,10 @@ Let us see how this compares against my initial requirements:
 
 :white_check_mark: No additional hardware, only existing Unifi USG at home and the pfSense SG-2440 at the colocation facility
 
-## Conclusion
+## 3 Conclusion
 
 Now we have our LAN network at home stretched across the internet to the colocation space. This connection could be used to place a backup device at a remote site, say a friend's house, and vice versa where both are able to access services on each end as if they were local.
 
 Feel free to contact me if you run into any issues. This setup took me months of research in my very limited free time to establish based on outdated guides online and posts missing information.
 
 ---
-
-Cover photo by [Daniel Jerez](https://unsplash.com/@danieljerez)

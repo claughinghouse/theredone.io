@@ -6,6 +6,9 @@ title: ThereDone
 theme: LoveIt
 params:
   version: 0.2.X
+  page:
+    code: 
+      copy: true
 menu:
   main:
     - identifier: posts
