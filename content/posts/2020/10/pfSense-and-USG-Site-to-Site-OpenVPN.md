@@ -1,8 +1,8 @@
 ---
 weight: 1
 title: "pfSense and USG Site-to-Site OpenVPN"
-date: 2020-03-06T21:29:01+08:00
-lastmod: 2020-03-06T21:29:01+08:00
+date: 2020-10-11T00:00:00+08:00
+lastmod: 2020-10-17T13:29:01+08:00
 draft: false
 author: "Cody"
 authorLink: "https://theredone.io"
@@ -36,11 +36,11 @@ First lets set up the OpenVPN server on pfSense
 
 Navigate to `VPN > OpenVPN`
 
-![Click VPN and then OpenVPN](/posts/2020/10/1.png)
+![Click VPN and then OpenVPN][1]
 
 Click Add to create a new server which will bring you to the OpenVPN server settings page
 
-![General Information Section](/posts/2020/10/2.png)
+![General Information Section][2]
 
 I changed the following settings, change to your preference
 
@@ -56,7 +56,7 @@ Local Port: `1197` - default is 1194 but I am using that port for another OpenVP
 
 Description: This is for your reference, name it as you please
 
-![Cryptographic Settings Section](/posts/2020/10/3.png)
+![Cryptographic Settings Section][3]
 
 Here is where the process gets tricky. Initially, I just pulled the pfSense generated shared key and pasted it into the Unifi USG. I was not able to get this to function properly so I ended up SSHing into the USG and generating the key there and copying it out. More on this later.
 
@@ -72,7 +72,7 @@ Auth digest algorithm: `SHA1 (160-bit)`
 
 Hardware Crypto: Select what your hardware is capable
 
-![Tunnel Settings Section](/posts/2020/10/4.png)
+![Tunnel Settings Section][4]
 
 IPv4 Tunnel Network: `10.255.255.240/28` - set this to whatever you prefer. I chose a /28 since I plan to have a couple other sites connecting to this server for friends and family's access. You can set this to a /30 if there is only one remote site planned to be connected.
 
@@ -88,7 +88,7 @@ Compression: `Omit Preference (Use OpenVPN Default)`
 
 Type-of-Service: Unchecked
 
-![Ping Settings Section](/posts/2020/10/5.png)
+![Ping Settings Section][5]
 
 Inactive: `0`
 
@@ -98,7 +98,7 @@ Interval: `10`
 
 Timeout: `60`
 
-![Advanced Configuration Section](/posts/2020/10/6.png)
+![Advanced Configuration Section][6]
 
 Custom options: Leave blank
 
@@ -122,7 +122,7 @@ First, we are going to SSH into the Unifi USG.
 
 Once you are logged into the USG via SSH elevate yourself to root
 
-![Generate Shared Key on USG](/posts/2020/10/7.png)
+![Generate Shared Key on USG][7]
 
 Now we need to copy the key out and remove the line breaks. The text between `BEGIN OpenVPN Static key V1` and `END` all needs to be formatted into one line. Use your favorite plaintext editor such as VSCode or Notepad++. Don't worry about the file being persistent across upgrades. We are not leaving it on the filesystem in the /tmp directory. Keep a copy of the key with line breaks for later.
 
@@ -130,7 +130,7 @@ Now we need to copy the key out and remove the line breaks. The text between `BE
 
 From the main page, navigate to the Settings page by clicking the gear icon. Then to `Settings > VPN > VPN Connections > UniFi to UniFi VPN`. Yes I know we are not connecting an Unifi to Unifi device however this is how it is laid out in the controller. Don't shoot the messenger on this one.
 
-![UniFi to UniFi VPN](/posts/2020/10/8.png)
+![UniFi to UniFi VPN][8]
 
 Fill in the information to match pfSense.
 
@@ -148,7 +148,7 @@ Remote Port: `1197` - This is the chosen OpenVPN port chosen when setting up the
 
 Local Address: This will be the next IP in the tunnel network subnet setup on the pfSense OpenVPN instance. This will be `10.255.255.242/28` for this guide.
 
-![Ports and Shared Secret from Earlier](/posts/2020/10/9.png)
+![Ports and Shared Secret from Earlier][9]
 
 Local Port: `1197`
 
@@ -162,7 +162,7 @@ Now time to add the firewall rule and shared key for the OpenVPN tunnel.
 
 First, navigate to `VPN > OpenVPN` and to the OpenVPN server that was created earlier and click the pencil to edit.
 
-![Cryptographic Settings](/posts/2020/10/10.png)
+![Cryptographic Settings][10]
 
 Paste the USG generated key with line breaks into the section called Shared Key text box and click save.
 
@@ -170,7 +170,7 @@ Now let's add a firewall rule to allow the USG to establish an OpenVPN connectio
 
 On the `WAN` tab add a new rule and match it to the screenshot
 
-![OpenVPN WAN Firewall Rule](/posts/2020/10/11.png)
+![OpenVPN WAN Firewall Rule][11]
 
 Action: `Pass`
 
@@ -188,7 +188,7 @@ Destination: `WAN Address` or interface address if the OpenVPN server is listeni
 
 Destination Port Range: `1197` - Set this to the OpenVPN server port in both boxes
 
-![OpenVPN WAN Firewall Rule Extra Options](/posts/2020/10/12.png)
+![OpenVPN WAN Firewall Rule Extra Options][12]
 
 Log: Unchecked
 
@@ -198,7 +198,7 @@ Click save and apply the rule on the following screen.
 
 Add another rule to allow the OpenVPN server to go from any source to any destination. This can be locked down further however per my requirements, any to any works best for me.
 
-![OpenVPN Firewall Rule Extra Options](/posts/2020/10/13.png)
+![OpenVPN Firewall Rule Extra Options][13]
 
 Action: `Pass`
 
@@ -272,4 +272,17 @@ Now we have our LAN network at home stretched across the internet to the colocat
 
 Feel free to contact me if you run into any issues. This setup took me months of research in my very limited free time to establish based on outdated guides online and posts missing information.
 
----
+<!-- UUIDs used -->
+[1]: /images/2020/10/7e4672ff-5373-4b6e-b81e-53d8405cbbc1.png
+[2]: /images/2020/10/ba7cdb07-6e5f-42d8-8a4b-a59ffb6a8c2f.png
+[3]: /images/2020/10/9bb5b931-a799-418b-91f3-144baab426f7.png
+[4]: /images/2020/10/4d7ae5f7-4cff-4468-a9b6-6d57e52a3c30.png
+[5]: /images/2020/10/1f3eb4e6-3057-4e78-87e2-4ebb7935fd5a.png
+[6]: /images/2020/10/377120bd-e536-4f22-9984-87bfb2708d40.png
+[7]: /images/2020/10/e1d14845-a2eb-4805-b619-19a523e8561e.png
+[8]: /images/2020/10/de11db6e-3b43-4ebe-add8-009184851173.png
+[9]: /images/2020/10/266c4353-2aa5-4bce-952b-d291c5117cb4.png
+[10]: /images/2020/10/da3e16ca-5b63-414c-9f85-fdb1a6dfe21b.png
+[11]: /images/2020/10/70175747-9730-49f1-b794-96baaa7a2ef2.png
+[12]: /images/2020/10/05649fd7-d1ef-4cf8-83e2-8613a896354c.png
+[13]: /images/2020/10/4cd13f90-df21-40a6-9993-879b222e45d5.png
