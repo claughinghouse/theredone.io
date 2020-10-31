@@ -3,7 +3,7 @@ weight: 1
 title: "👻 Happy Halloween 🎃"
 date: 2020-10-31T00:00:00+08:00
 lastmod: 2020-10-31T00:00:00+08:00
-draft: true
+draft: false
 author: "Cody"
 authorLink: "https://theredone.io"
 description: "🎃 Happy Halloween 👻"
