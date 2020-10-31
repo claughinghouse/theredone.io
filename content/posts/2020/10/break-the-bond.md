@@ -15,7 +15,7 @@ toc:
 
 # Mistakes were made 🤦🏻‍♂️
 
-Recently I needed to edit the network configuration on my [Proxmox][1] cluster in the colocation. This process resulted in reconfiguring all network interfaces on all nodes because of a mistake I made. In the process, I needed to break the [LACP bond][2] to the [OpenVSwitch][3] in order to make a couple changes and then recreate the bond.
+Recently I needed to edit the network configuration on my [Proxmox][1] cluster in the colocation. This process resulted in reconfiguring all network interfaces on all nodes because of a mistake I made. In the process, I needed to break the [LACP bond][2] to the [OpenVSwitch][3] to make a couple changes and then recreate the bond.
 
 ## Current State
 
