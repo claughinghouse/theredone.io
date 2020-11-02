@@ -19,7 +19,7 @@ Recently I needed to edit the network configuration on my [Proxmox][1] cluster i
 
 ## Current State
 
-Thank you port descriptions on Cisco switches. All 4 PVE nodes are configured the same and the interfaces are also in the same order. The commands and examples are for a Cisco `WS-C3750X-48T-S` Just to preface the below: this is more for my reference for when I inevitably make a mistake in the future. 
+Thank you port descriptions on Cisco switches. All 4 PVE nodes are configured the same and the interfaces are also in the same order. The commands and examples are for a Cisco `WS-C3750X-48T-S` Just to preface the below: this is more for my reference for when I inevitably make a mistake in the future.
 
 ```console
 interface GigabitEthernet2/0/28
@@ -52,7 +52,7 @@ interface GigabitEthernet2/0/28
  channel-group Y mode active
 ```
 
-And there you have it. We were able to break the bond, assign the port to a default VLAN, and then return everything to normal. 
+And there you have it. We were able to break the bond, assign the port to a default VLAN, and then return everything to normal.
 
 Hopefully, this helps!
 
