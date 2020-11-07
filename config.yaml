@@ -3,6 +3,11 @@ baseURL: 'http://theredone.io/'
 defaultContentLanguage: en
 languageCode: en
 title: ThereDone
+enableRobotsTXT: true
+sitemap:
+  changefreq: daily
+  filename: sitemap.xml
+  priority: 0.5
 theme: LoveIt
 params:
   version: 0.2.X
