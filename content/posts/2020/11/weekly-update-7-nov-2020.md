@@ -16,7 +16,7 @@ toc:
 
 # What am _I_ working on?
 
-Today is just a check in and status update on some of the projects from last week. Summary below and some next steps for these projects. As I work through these I will try to keep a log and link to these log entries so that you can follow along my path or suggest improvements!
+Today is just a check-in and status update on some of the projects from last week. The summary below and some next steps for these projects. As I work through these I will try to keep a log and link to these blog entries so that you can follow along my path or suggest improvements!
 
 ## Past
 
@@ -30,11 +30,11 @@ Today is just a check in and status update on some of the projects from last wee
 
 - [ ] Move more of my [Home-Assistant][1] [config][2] to my new server
 
-  - Still in process, check out my [git repo][2]!
+  - In progress, check out my [git repo][2]!
 
 - [ ] Update some of my [Home-Assistant][1] [UI][2] and start creating a _tabletized_ version to mount on the wall
 
-  - On hold for now since I need to determine what size tablet, how many, and where and how they will be mounted
+  - On hold, since I need to determine what size tablet, how many, and where and how they will be mounted
 
 ## Future
 
@@ -48,7 +48,7 @@ Today is just a check in and status update on some of the projects from last wee
 
   - Research mounting options that allow the table to be removed easily
 
-- [ ] Build a [link shortner][5] for this blog
+- [ ] Build a [link shortener][5] for this blog
 
   - [Shlink][6] looks promising after some quick research
 
