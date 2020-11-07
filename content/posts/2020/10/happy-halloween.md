@@ -16,7 +16,7 @@ toc:
 
 # What is this?
 
-Just like a lot of side projects they tend to get relegated to whatever free time the maintainer can set aside. Whether it is a couple minutes here and there or a dedicated day on the weekend. Today is Halloween and that means there is even less time for trial and error on these projects. I am going to try to start these posts on a semi-regular basis to hold myself accountable for making progress on my various projects. 
+Just like a lot of side projects they tend to get relegated to whatever free time the maintainer can set aside. Whether it is a couple minutes here and there or a dedicated day on the weekend. Today is Halloween and that means there is even less time for trial and error on these projects. I am going to try to start these posts on a semi-regular basis to hold myself accountable for making progress on my various projects.
 
 Today:
 
