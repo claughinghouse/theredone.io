@@ -2,7 +2,7 @@
 weight: 1
 title: "What am I working on this week?"
 date: 2020-11-07T00:00:00+08:00
-lastmod: 2020-11-07T00:00:00+08:00
+lastmod: 2020-11-14T00:00:00+08:00
 draft: false
 author: "Cody"
 authorLink: "https://theredone.io"
@@ -20,7 +20,7 @@ Today is just a check-in and status update on some of the projects from last wee
 
 ## Past
 
-- [ ] Research suppliers on Alibaba that can manufacture a few [ESP32][1] based smart plugs
+- [ ] Research suppliers on Alibaba that can manufacture a few ESP-32 based smart plugs
 
   - I need to research which board type is best
 
