@@ -19,7 +19,6 @@ jobs:
         with:
           hugo-version: '0.79.0'
           # extended: true
-
       - name: Build
         run: hugo --minify
 
