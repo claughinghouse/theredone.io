@@ -54,7 +54,7 @@ Just a quick recap of the projects and ideas that I was working on before:
 
   - ~~Priority will be [influxdb][5] and configure [Home-Assistant][2] to leverage it~~
 
-  - ~~[Syncthing][6] and [Resilio Sync][7] are finished
+  - ~~[Syncthing][6] and [Resilio Sync][7] are finished~~
 
 - [ ] ~~Continue moving configuration from existing [Home-Assistant][2]~~
 
