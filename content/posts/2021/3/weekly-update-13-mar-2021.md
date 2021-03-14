@@ -2,12 +2,12 @@
 weight: 1
 title: "What am I working on this week? - 13 Mar 2020"
 date: 2021-03-13T00:00:00+08:00
-lastmod: 2021-03-13T00:00:00+08:00
+lastmod: 2021-03-14T12:41:00+08:00
 draft: false
 author: "Cody"
 authorLink: "https://theredone.io"
 description: "What am I working on this week? - 13 Mar 2020"
-tags: ["update"]
+tags: ["update", "kubernetes", "k8s"]
 categories: ["misc"]
 lightgallery: false
 toc:
